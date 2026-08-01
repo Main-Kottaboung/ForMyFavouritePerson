@@ -8,30 +8,29 @@ const galleryRoot = document.querySelector('[data-gallery-root]');
 
 if (galleryRoot) {
   const photos = [
-    {
-      id: 1,
-      type: 'placeholder',
-      color: '#FADADD',
-      caption: 'Our Memory #1',
-      label: 'Photo 1',
-      rotation: -1.6,
-    },
-    {
-      id: 2,
-      type: 'placeholder',
-      color: '#DCEBFF',
-      caption: 'Our Memory #2',
-      label: 'Photo 2',
-      rotation: 1.2,
-    },
-    {
-      id: 3,
-      type: 'placeholder',
-      color: '#E6DDF8',
-      caption: 'Our Memory #3',
-      label: 'Photo 3',
-      rotation: -0.9,
-    },
+    { id: 1, src: 'assets/images/001.JPG', caption: 'คบกันวันแรก อิ้อิ้' },
+    { id: 2, src: 'assets/images/002.webp', caption: 'แก้มเธอน่าหยิกมากรูปนี้' },
+    { id: 3, src: 'assets/images/003.webp', caption: 'น่ารักจริงๆ เจ้าแว่น หิหิ' },
+    { id: 4, src: 'assets/images/004.webp', caption: 'ฉันว่าหน้าฉันค่อนข้างแปลก555' },
+    { id: 5, src: 'assets/images/005.jpg', caption: 'หิหิ เจ้าแว่นตัวเล็ก' },
+    { id: 6, src: 'assets/images/006.webp', caption: 'มอม5555' },
+    { id: 7, src: 'assets/images/007.jpg', caption: 'แก้มแมวกับแก้มเธอพอๆกันเลย' },
+    { id: 8, src: 'assets/images/008.jpg', caption: 'อุ้ยย' },
+    { id: 9, src: 'assets/images/009.jpg', caption: 'โครตมอม ทั้งคู่555' },
+    { id: 10, src: 'assets/images/010.jpg', caption: 'ชิ มองอะไร เจ้าแว่น!' },
+    { id: 11, src: 'assets/images/011.jpg', caption: 'อันนี้ผีแว่น555' },
+    { id: 12, src: 'assets/images/012.jpg', caption: 'หน้าเธอค่อนข้างทะเล้นนะ' },
+    { id: 13, src: 'assets/images/013.jpg', caption: 'แต่ไม่เป็นไร น่ารักดี อิ้อิ้' },
+    { id: 14, src: 'assets/images/014.JPG', caption: 'ตอนถ่ายรูปนี้อะ กำลังคิดอยู่' },
+    { id: 15, src: 'assets/images/015.JPG', caption: 'ว่าจะกอดดมั้ยนะ หิหิ' },
+    { id: 16, src: 'assets/images/016.JPG', caption: 'สุดท้ายก็เลยกอด :>' },
+    { id: 17, src: 'assets/images/017.jpg', caption: 'แอบขโมยรถแม่ขับไปเชียร์เด็ก' },
+    { id: 18, src: 'assets/images/018.jpg', caption: 'ทิ้งแม่ พาเด็กไปเที่ยว555' },
+    { id: 19, src: 'assets/images/019.jpg', caption: 'วันนนั้นเธอดูเหนื่อยมาก' },
+    { id: 20, src: 'assets/images/020.jpg', caption: 'ไม่ค่อยยิ้มเลย' },
+    { id: 21, src: 'assets/images/021.jpg', caption: 'บอกเลยว่าไม่รู้จะทำอะไรเลย' },
+    { id: 22, src: 'assets/images/022.jpg', caption: 'แต่สุดท้ายก็ทำให้เจ้าแว่นยิ้มได้ หิหิ' },
+    { id: 23, src: 'assets/images/023.jpg', caption: 'รักนะ เจ้าแว่น' },
   ];
 
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -57,8 +56,8 @@ if (galleryRoot) {
     const total = photos.length;
     return ((index % total) + total) % total;
   };
-  
-  const getSlideWidth = () => state.slides[0]?.getBoundingClientRect().width || state.viewport.clientWidth;
+
+  const getSlideWidth = () => state.slides[0]?.offsetWidth || state.viewport.clientWidth;
 
   const pauseAutoplay = () => {
     window.clearInterval(state.autoTimer);
@@ -237,7 +236,7 @@ if (galleryRoot) {
     state.activeIndex = normalizeIndex(nextIndex);
 
     const slideWidth = getSlideWidth();
-    state.track.style.transform = `translateX(-${state.activeIndex * slideWidth}px)`;
+    state.track.style.transform = `translate3d(-${state.activeIndex * slideWidth}px, 0, 0)`;
 
     state.slides.forEach((slide, index) => {
       const isActive = index === state.activeIndex;
@@ -324,7 +323,7 @@ if (galleryRoot) {
     state.drag.currentX = event.clientX;
     const deltaX = state.drag.currentX - state.drag.startX;
     const offset = (-state.activeIndex * getSlideWidth()) + deltaX;
-    state.track.style.transform = `translateX(${offset}px)`;
+    state.track.style.transform = `translate3d(${offset}px, 0, 0)`;
   };
 
   const handlePointerUp = (event) => {
