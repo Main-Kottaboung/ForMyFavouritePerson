@@ -21,9 +21,7 @@
 				<p class="hero__subtitle">Thank you for making every ordinary day feel extraordinary.</p>
 				<button class="hero__button js-page-next" type="button" aria-label="Open our story and go to the next page">Open Our Story</button>
 			</div>
-			<!-- <button class="storybook__nav storybook__nav--next js-page-next" type="button" aria-label="Go to the next page">
-				<span>Next</span>
-			</button> -->
+			
 			<div class="hero__scroll-indicator" aria-hidden="true">
 				<span class="hero__scroll-line"></span>
 				<span class="hero__scroll-dot"></span>
@@ -33,10 +31,19 @@
 		<section class="storybook__page storybook__page--gallery" id="page-2" aria-label="Photo album page" data-page="1">
 			<div class="gallery-page" data-gallery-root></div>
 		</section>
+
+		<section class="storybook__page storybook__page--movie" id="page-3" aria-label="Our little movie page" data-page="2">
+			<div class="movie-page" data-movie-root></div>
+		</section>
+
+		<section class="storybook__page storybook__page--chapter-four" id="page-4" aria-label="Next chapter placeholder" data-page="3">
+			<div class="chapter-four" aria-hidden="true"></div>
+		</section>
 	</main>
 
 	<script type="module" src="js/main.js"></script>
 	<script type="module" src="js/gallery.js"></script>
+	<script type="module" src="js/movie.js"></script>
 	<script type="module" src="js/animations.js"></script>
 	<script type="module" src="js/music.js"></script>
 </body>
