@@ -1,0 +1,10 @@
+/*
+	style.css
+	Main stylesheet entry point.
+	This file imports the base variables, layout, component, and animation layers.
+*/
+
+@import url("./variables.css");
+@import url("./layout.css");
+@import url("./components.css");
+@import url("./animations.css");

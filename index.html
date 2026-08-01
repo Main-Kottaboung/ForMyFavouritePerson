@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="theme-color" content="#f8e9ea">
+	<meta name="description" content="A romantic anniversary website for a personal love story.">
+	<title>Happy Anniversary</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<main class="storybook" id="storybook" aria-label="Romantic storybook pages">
+		<section class="storybook__page hero hero--active" id="page-1" aria-labelledby="hero-title" data-page="0">
+			<div class="hero__background" aria-hidden="true"></div>
+			<div class="hero__overlay" aria-hidden="true"></div>
+			<div class="hero__content hero-fade-in">
+				<p class="hero__label">For My Favorite Person</p>
+				<h1 id="hero-title" class="hero__title">Happy One Month ❤️</h1>
+				<p class="hero__subtitle">Thank you for making every ordinary day feel extraordinary.</p>
+				<button class="hero__button js-page-next" type="button" aria-label="Open our story and go to the next page">Open Our Story</button>
+			</div>
+			<!-- <button class="storybook__nav storybook__nav--next js-page-next" type="button" aria-label="Go to the next page">
+				<span>Next</span>
+			</button> -->
+			<div class="hero__scroll-indicator" aria-hidden="true">
+				<span class="hero__scroll-line"></span>
+				<span class="hero__scroll-dot"></span>
+			</div>
+		</section>
+
+		<section class="storybook__page storybook__page--gallery" id="page-2" aria-label="Photo album page" data-page="1">
+			<div class="gallery-page" data-gallery-root></div>
+		</section>
+	</main>
+
+	<script type="module" src="js/main.js"></script>
+	<script type="module" src="js/gallery.js"></script>
+	<script type="module" src="js/animations.js"></script>
+	<script type="module" src="js/music.js"></script>
+</body>
+</html>
