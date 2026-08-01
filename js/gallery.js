@@ -1,0 +1,4 @@
+/*
+  gallery.js
+  Reserved for gallery interactions such as image enlargement and transitions.
+*/
