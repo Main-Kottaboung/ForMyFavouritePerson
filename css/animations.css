@@ -74,11 +74,20 @@
   .hero__scroll-line,
   .hero__scroll-dot,
   .hero-fade-in,
-  .storybook {
+  .storybook,
+  .gallery-carousel__track,
+  .gallery-carousel__slide,
+  .gallery-carousel__dot {
     animation: none !important;
   }
 
   .storybook {
+    transition: none !important;
+  }
+
+  .gallery-carousel__track,
+  .gallery-carousel__slide,
+  .gallery-carousel__dot {
     transition: none !important;
   }
 }

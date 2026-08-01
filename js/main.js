@@ -6,8 +6,6 @@
 
 const storybook = document.querySelector('.storybook');
 const pages = Array.from(document.querySelectorAll('.storybook__page'));
-const nextButtons = Array.from(document.querySelectorAll('.js-page-next'));
-const prevButtons = Array.from(document.querySelectorAll('.js-page-prev'));
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 let activePageIndex = 0;
 
@@ -20,14 +18,6 @@ const updateStorybook = (index) => {
     const isActive = pageIndex === nextIndex;
     page.classList.toggle('is-active', isActive);
     page.setAttribute('aria-hidden', String(!isActive));
-  });
-
-  prevButtons.forEach((button) => {
-    button.disabled = nextIndex === 0;
-  });
-
-  nextButtons.forEach((button) => {
-    button.disabled = nextIndex === pages.length - 1;
   });
 	
   return nextIndex;
@@ -50,16 +40,17 @@ const goToPage = (index) => {
   }, 750);
 };
 
-nextButtons.forEach((button) => {
-  button.addEventListener('click', () => {
+document.addEventListener('click', (event) => {
+  const nextButton = event.target.closest('.js-page-next');
+  if (nextButton) {
     goToPage(activePageIndex + 1);
-  });
-});
+    return;
+  }
 
-prevButtons.forEach((button) => {
-  button.addEventListener('click', () => {
+  const prevButton = event.target.closest('.js-page-prev');
+  if (prevButton) {
     goToPage(activePageIndex - 1);
-  });
+  }
 });
 
 if (storybook && pages.length > 0) {
