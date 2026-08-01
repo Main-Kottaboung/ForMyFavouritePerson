@@ -52,8 +52,24 @@
   }
 }
 
+@keyframes movie-fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .hero-fade-in {
   animation: hero-fade-in 900ms ease-out both;
+}
+
+.movie-fade-in {
+  animation: movie-fade-in 1200ms ease-out both;
 }
 
 .storybook.is-transitioning {
@@ -74,10 +90,16 @@
   .hero__scroll-line,
   .hero__scroll-dot,
   .hero-fade-in,
+  .movie-fade-in,
   .storybook,
   .gallery-carousel__track,
   .gallery-carousel__slide,
-  .gallery-carousel__dot {
+  .gallery-carousel__dot,
+  .movie-card,
+  .movie-card__overlay,
+  .movie-card__play,
+  .movie-page__message,
+  .movie-page__continue {
     animation: none !important;
   }
 
@@ -87,7 +109,12 @@
 
   .gallery-carousel__track,
   .gallery-carousel__slide,
-  .gallery-carousel__dot {
+  .gallery-carousel__dot,
+  .movie-card,
+  .movie-card__overlay,
+  .movie-card__play,
+  .movie-page__message,
+  .movie-page__continue {
     transition: none !important;
   }
 }

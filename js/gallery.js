@@ -40,11 +40,8 @@ if (galleryRoot) {
   const state = {
     activeIndex: 0,
     slides: [],
-    dots: [],
     track: null,
     viewport: null,
-    prevButton: null,
-    nextButton: null,
     counterCurrent: null,
     counterTotal: null,
     autoTimer: null,
@@ -175,50 +172,21 @@ if (galleryRoot) {
     const controls = document.createElement('div');
     controls.className = 'gallery-carousel__meta';
 
-    const prevButton = document.createElement('button');
-    prevButton.className = 'storybook__nav gallery-carousel__arrow gallery-carousel__arrow--prev';
-    prevButton.type = 'button';
-    prevButton.setAttribute('aria-label', 'Show the previous memory');
-    prevButton.textContent = 'Previous';
-
     const counter = document.createElement('div');
     counter.className = 'gallery-carousel__counter';
     counter.setAttribute('aria-live', 'polite');
     counter.innerHTML = '<span data-counter-current>1</span> / <span data-counter-total>3</span>';
 
-    const nextButton = document.createElement('button');
-    nextButton.className = 'storybook__nav gallery-carousel__arrow gallery-carousel__arrow--next';
-    nextButton.type = 'button';
-    nextButton.setAttribute('aria-label', 'Show the next memory');
-    nextButton.textContent = 'Next';
+    controls.append(counter);
 
-    controls.append(prevButton, counter, nextButton);
-
-    const dots = document.createElement('div');
-    dots.className = 'gallery-carousel__dots';
-    dots.setAttribute('role', 'tablist');
-    dots.setAttribute('aria-label', 'Photo pagination');
-
-    photos.forEach((photo, index) => {
-      const dot = document.createElement('button');
-      dot.className = 'gallery-carousel__dot';
-      dot.type = 'button';
-      dot.setAttribute('aria-label', `Go to photo ${index + 1}`);
-      dot.setAttribute('aria-controls', `gallery-slide-${photo.id}`);
-      dots.appendChild(dot);
-    });
-
-    carousel.append(viewport, controls, dots);
+    carousel.append(viewport, controls);
     stage.appendChild(carousel);
     page.append(header, stage);
     galleryRoot.appendChild(page);
 
     state.slides = Array.from(track.children);
-    state.dots = Array.from(dots.children);
     state.track = track;
     state.viewport = viewport;
-    state.prevButton = prevButton;
-    state.nextButton = nextButton;
     state.counterCurrent = counter.querySelector('[data-counter-current]');
     state.counterTotal = counter.querySelector('[data-counter-total]');
 
@@ -228,8 +196,7 @@ if (galleryRoot) {
   };
 
   const updateControls = () => {
-    state.prevButton.disabled = false;
-    state.nextButton.disabled = false;
+    return;
   };
 
   const updateState = (nextIndex, { fromInteraction = false } = {}) => {
@@ -242,13 +209,6 @@ if (galleryRoot) {
       const isActive = index === state.activeIndex;
       slide.classList.toggle('is-active', isActive);
       slide.setAttribute('aria-hidden', String(!isActive));
-    });
-
-    state.dots.forEach((dot, index) => {
-      const isActive = index === state.activeIndex;
-      dot.classList.toggle('is-active', isActive);
-      dot.setAttribute('aria-selected', String(isActive));
-      dot.tabIndex = isActive ? 0 : -1;
     });
 
     state.counterCurrent.textContent = String(state.activeIndex + 1);
@@ -363,13 +323,6 @@ if (galleryRoot) {
   };
 
   renderCarousel();
-
-  state.prevButton.addEventListener('click', () => goToSlide(state.activeIndex - 1));
-  state.nextButton.addEventListener('click', () => goToSlide(state.activeIndex + 1));
-
-  state.dots.forEach((dot, index) => {
-    dot.addEventListener('click', () => goToSlide(index));
-  });
 
   state.viewport.addEventListener('pointerdown', handlePointerDown);
   state.viewport.addEventListener('pointermove', handlePointerMove);

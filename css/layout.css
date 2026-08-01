@@ -18,6 +18,7 @@ body {
   width: 100%;
   min-height: 100vh;
   overflow: hidden;
+  overscroll-behavior: none;
   font-family: var(--font-body);
   color: var(--color-ink);
   background: linear-gradient(180deg, var(--color-cream), var(--color-blush));
@@ -47,6 +48,7 @@ select {
   transform: translateX(0);
   transition: transform 720ms cubic-bezier(0.22, 1, 0.36, 1);
   will-change: transform;
+  overscroll-behavior: none;
 }
 
 .storybook__page {
