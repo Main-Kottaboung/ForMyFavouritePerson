@@ -340,8 +340,8 @@
 
 .movie-card {
   position: relative;
-  width: min(100%, 56rem);
-  aspect-ratio: 16 / 9;
+  width: min(80vw, 26rem);
+  aspect-ratio: 9 / 16;
   overflow: hidden;
   border-radius: 1.5rem;
   background: #f1e7da;
@@ -370,7 +370,7 @@
 }
 
 .movie-card__video {
-  object-fit: cover;
+  object-fit: contain;
   background: #e8dccf;
 }
 
@@ -740,6 +740,11 @@
 
   .movie-page__shell {
     width: min(100%, 60rem);
+  }
+
+  .movie-card {
+    width: min(100%, 26rem);
+    max-width: 26rem;
   }
 
   .movie-page__skip {

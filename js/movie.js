@@ -8,7 +8,7 @@ const movieRoot = document.querySelector('[data-movie-root]');
 
 if (movieRoot) {
   const movie = {
-    src: 'assets/videos/little-movie.mp4',
+    src: 'assets/videos/vid.mp4',
     poster: createPosterDataUri(),
     durationLabel: '01:42',
   };
@@ -83,7 +83,7 @@ if (movieRoot) {
 
     const title = document.createElement('h2');
     title.className = 'movie-page__title';
-    title.textContent = 'Our Little Movie';
+    title.textContent = 'Cute moments';
 
     const subtitle = document.createElement('p');
     subtitle.className = 'movie-page__subtitle';
