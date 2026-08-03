@@ -46,7 +46,7 @@ const createSectionNavigation = (pageIndex) => {
 const updateStorybook = (index) => {
   const nextIndex = Math.max(0, Math.min(index, pages.length - 1));
   activePageIndex = nextIndex;
-  storybook.style.transform = `translate3d(-${nextIndex * 100}vw, 0, 0)`;
+  storybook.style.transform = `translate3d(-${nextIndex * 100}%, 0, 0)`;
 
   pages.forEach((page, pageIndex) => {
     const isActive = pageIndex === nextIndex;
@@ -104,6 +104,10 @@ document.addEventListener('click', (event) => {
 });
 
 storybook?.addEventListener('wheel', (event) => {
+  event.preventDefault();
+}, { passive: false });
+
+storybook?.addEventListener('touchmove', (event) => {
   event.preventDefault();
 }, { passive: false });
 
