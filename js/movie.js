@@ -46,15 +46,17 @@ if (movieRoot) {
             <stop offset="100%" stop-color="#fff8ef" stop-opacity="0"/>
           </radialGradient>
         </defs>
-        <rect width="1200" height="675" fill="url(#bg)"/>
-        <circle cx="600" cy="300" r="330" fill="url(#glow)"/>
-        <rect x="160" y="130" width="880" height="415" rx="36" fill="rgba(255,255,255,0.16)" stroke="rgba(255,255,255,0.22)"/>
-        <text x="600" y="300" text-anchor="middle" fill="#4b3f40" font-family="Georgia, serif" font-size="52" font-weight="700">Our Little Movie</text>
-        <text x="600" y="362" text-anchor="middle" fill="#6a5c5d" font-family="Georgia, serif" font-size="24">A memory waiting to play</text>
-        <circle cx="600" cy="470" r="54" fill="rgba(255,255,255,0.72)"/>
-        <path d="M584 444 L584 496 L632 470 Z" fill="#5e4c4e"/>
+        
       </svg>
     `;
+
+    // <rect width="1200" height="675" fill="url(#bg)"/>
+    //     <circle cx="600" cy="300" r="330" fill="url(#glow)"/>
+    //     <rect x="160" y="130" width="880" height="415" rx="36" fill="rgba(255,255,255,0.16)" stroke="rgba(255,255,255,0.22)"/>
+    //     <text x="600" y="300" text-anchor="middle" fill="#4b3f40" font-family="Georgia, serif" font-size="52" font-weight="700">Our Little Movie</text>
+    //     <text x="600" y="362" text-anchor="middle" fill="#6a5c5d" font-family="Georgia, serif" font-size="24">A memory waiting to play</text>
+    //     <circle cx="600" cy="470" r="54" fill="rgba(255,255,255,0.72)"/>
+    //     <path d="M584 444 L584 496 L632 470 Z" fill="#5e4c4e"/>
 
     return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(posterMarkup)}`;
   }
