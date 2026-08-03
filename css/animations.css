@@ -103,6 +103,11 @@
     animation: none !important;
   }
 
+  .movie-fade-in {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
   .storybook {
     transition: none !important;
   }
