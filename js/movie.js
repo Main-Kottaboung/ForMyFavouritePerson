@@ -102,12 +102,15 @@ if (movieRoot) {
     card.setAttribute('data-state', 'idle');
 
     const video = document.createElement('video');
+
     video.className = 'movie-card__video';
-    video.src = movie.src;
     video.poster = movie.poster;
-    video.preload = 'metadata';
+    video.preload = 'none';
     video.controls = false;
     video.playsInline = true;
+    video.muted = true;
+
+    video.dataset.src = movie.src;
     video.setAttribute('aria-label', 'A short memory video');
 
     const overlay = document.createElement('div');
@@ -189,12 +192,27 @@ if (movieRoot) {
   };
 
   const playMovie = async () => {
-    try {
-      setPlayingState(true);
-      await state.video.play();
-    } catch (error) {
-      setPlayingState(false);
-    }
+
+      try {
+
+          if (!state.video.src) {
+
+              state.video.src = state.video.dataset.src;
+              state.video.load();
+
+          }
+
+          setPlayingState(true);
+
+          await state.video.play();
+
+      } catch (error) {
+
+          console.log(error);
+          setPlayingState(false);
+
+      }
+
   };
 
   render();
