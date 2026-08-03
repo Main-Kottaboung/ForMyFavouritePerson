@@ -11,6 +11,8 @@
 .storybook__page--movie,
 .storybook__page--chapter-four {
   background: linear-gradient(180deg, #f4ede3, #ece1d4);
+  width:100%;
+  min-height:100svh;
 }
 
 .storybook__nav {
@@ -47,60 +49,10 @@
   box-shadow: none;
 }
 
-.storybook__section-nav {
-  position: absolute;
-  left: 50%;
-  right: auto;
-  bottom: clamp(1rem, 3vw, 1.8rem);
-  z-index: 5;
-  display: grid;
-  gap: 0.65rem;
-  width: min(100% - 2rem, 34rem);
-  transform: translateX(-50%);
-  pointer-events: none;
-}
-
-.storybook__section-nav-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-3);
-  min-height: 3rem;
-  pointer-events: none;
-}
-
-.storybook__chapter-nav-button {
-  min-width: 7.5rem;
-  opacity: 0.7;
-  pointer-events: auto;
-}
-
-.storybook__chapter-nav-button:hover:not(:disabled) {
-  opacity: 1;
-}
-
-.storybook__chapter-nav-button--prev {
-  justify-self: start;
-}
-
-.storybook__chapter-nav-button--next {
-  justify-self: end;
-}
-
-.storybook__section-nav-counter {
-  margin: 0;
-  text-align: center;
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(62, 49, 64, 0.55);
-}
-
 .gallery-page {
   position: relative;
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -205,6 +157,12 @@
   opacity: 0;
 }
 
+.gallery-carousel__next-section{
+    margin-top:1rem;
+    min-width:15rem;
+    align-self:center;
+}
+
 .polaroid {
   --rotation: -1.5deg;
   width: min(100%, 32rem);
@@ -283,7 +241,7 @@
 
 .movie-page {
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -486,7 +444,6 @@
 }
 
 .movie-page__skip {
-  position: absolute;
   right: 0;
   bottom: -0.5rem;
   border: 0;
@@ -554,7 +511,7 @@
   position: relative;
   display: grid;
   place-items: center;
-  overflow: clip;
+  overflow: hidden;
   padding: var(--space-6) var(--space-4);
 }
 

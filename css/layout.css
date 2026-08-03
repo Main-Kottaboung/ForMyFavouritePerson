@@ -17,13 +17,18 @@ html {
 body {
   margin: 0;
   width: 100%;
-  min-height: 100vh;
-  overflow: hidden;
-  overscroll-behavior: none;
+  min-height: 100svh;
   overflow-x: hidden;
+  overflow-y: auto;
+  //overscroll-behavior-y: contain;
+
   font-family: var(--font-body);
   color: var(--color-ink);
-  background: linear-gradient(180deg, var(--color-cream), var(--color-blush));
+  background: linear-gradient(
+    180deg,
+    var(--color-cream),
+    var(--color-blush)
+  );
 }
 
 img,
@@ -43,27 +48,27 @@ select {
 }
 
 .storybook {
-  position: fixed;
-  inset: 0;
   width: 100%;
-  height: 100vh;
   display: flex;
-  flex-direction: row;
-  overflow: hidden;
-  touch-action: none;
-  transform: translate3d(0, 0, 0);
-  transition: transform 720ms cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: transform;
-  overscroll-behavior: none;
+  flex-direction: column;
+
+  overflow: visible;
 }
 
 .storybook__page {
   position: relative;
-  flex: 0 0 100%;
-  min-width: 100%;
+
   width: 100%;
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100svh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  overflow-x: hidden;
+  overflow-y: visible;
+
+  padding: 1rem;
 }
 
 .storybook__page-inner {
@@ -87,4 +92,13 @@ select {
   .storybook__page-inner {
     width: min(100% - 4rem, var(--container-width));
   }
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+}
+
+section {
+  scroll-margin-top: 0;
 }

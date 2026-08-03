@@ -169,15 +169,34 @@ if (galleryRoot) {
 
     viewport.appendChild(track);
 
+    // const controls = document.createElement('div');
+    // controls.className = 'gallery-carousel__meta';
+
+    // const counter = document.createElement('div');
+    // counter.className = 'gallery-carousel__counter';
+    // counter.setAttribute('aria-live', 'polite');
+    // counter.innerHTML = '<span data-counter-current>1</span> / <span data-counter-total>3</span>';
+
+    // controls.append(counter);
+
+    // carousel.append(viewport, controls);
     const controls = document.createElement('div');
     controls.className = 'gallery-carousel__meta';
 
     const counter = document.createElement('div');
     counter.className = 'gallery-carousel__counter';
     counter.setAttribute('aria-live', 'polite');
-    counter.innerHTML = '<span data-counter-current>1</span> / <span data-counter-total>3</span>';
+    counter.innerHTML =
+      '<span data-counter-current>1</span> / <span data-counter-total>3</span>';
 
-    controls.append(counter);
+    const nextSectionButton = document.createElement('button');
+    nextSectionButton.type = 'button';
+    nextSectionButton.className =
+      'storybook__nav gallery-carousel__next-section js-page-next';
+
+    nextSectionButton.textContent = 'Continue Our Story →';
+
+    controls.append(counter, nextSectionButton);
 
     carousel.append(viewport, controls);
     stage.appendChild(carousel);
@@ -312,12 +331,12 @@ if (galleryRoot) {
 
   const handleKeyDown = (event) => {
     if (event.key === 'ArrowLeft') {
-      event.preventDefault();
+      //event.preventDefault();
       goToSlide(state.activeIndex - 1);
     }
 
     if (event.key === 'ArrowRight') {
-      event.preventDefault();
+      //event.preventDefault();
       goToSlide(state.activeIndex + 1);
     }
   };
