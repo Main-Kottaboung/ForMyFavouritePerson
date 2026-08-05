@@ -30,7 +30,7 @@ if (galleryRoot) {
     { id: 20, src: 'assets/images/020.webp', caption: 'ไม่ค่อยยิ้มเลย' },
     { id: 21, src: 'assets/images/021.webp', caption: 'บอกเลยว่าไม่รู้จะทำอะไรเลย' },
     { id: 22, src: 'assets/images/022.webp', caption: 'แต่สุดท้ายก็ทำให้เจ้าแว่นยิ้มได้ หิหิ' },
-    { id: 23, src: 'assets/images/023.webp', caption: 'คบกันนานๆ เจ้าแว่น' },
+    { id: 23, src: 'assets/images/023.webp', caption: 'คบกันนานๆ นะ เจ้าแว่น' },
   ];
 
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
